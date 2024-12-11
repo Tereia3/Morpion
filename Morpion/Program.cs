@@ -12,7 +12,13 @@ namespace Morpion
         public static void AfficherMorpion(int j, int k)
         {
             // A compléter
-            
+
+            Grid myGrid = new Grid();
+            myGrid.Width = 250;
+            myGrid.Height = 100;
+            myGrid.HorizontalAlignment = HorizontalAlignment.Left;
+            myGrid.VerticalAlignment = VerticalAlignment.Top;
+            myGrid.ShowGridLines = true;
         }
 
         // Fonction permettant de changer

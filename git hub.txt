@@ -1,0 +1,26 @@
+connection à GitHub: https://github.com/ 
+
+Réaliser le morpion dans visual studio, en ligne de commmande cad pas de form !
+
+git init
+git add .
+git commit -m " "
+git remote add origin https://github.com/Tereia3/Morpion.git
+git push
+git config --global --add safe.directory
+
+//Permet de laisser des comms pour savoir ou on c'est arreter
+git add . //ajouter un truc
+git commit -m " " //ajouter un commentaire
+git push //Enregistre tous les informations
+
+Mission:
+
+morpion = principe du croix rond
+9 cases (3 de cotés)
+
+la grille est représenter par un tableau à DEUX dimention ou est stocker un nombre entier
+=1 pour le premier joueur
+=2 pour le deuxième joueur
+
+- réaliser une grille
