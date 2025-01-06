@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Security.Policy;
 using System.Text.RegularExpressions;
 
@@ -12,13 +12,18 @@ namespace Morpion
         public static void AfficherMorpion(int j, int k)
         {
             // A compléter
+            for (var p = 0; p < grille.GetLength(0); p++)
+            {
+                Console.Write("\n|----|----|----|\n");
+                Console.Write("|");
+                for (var i = 0; i < grille.GetLength(1); i++)
+                {
+                    Console.Write("    ");
+                    Console.Write("|");
+                }
+            }
+            Console.Write("\n|----|----|----|\n");
 
-            Grid myGrid = new Grid();
-            myGrid.Width = 250;
-            myGrid.Height = 100;
-            myGrid.HorizontalAlignment = HorizontalAlignment.Left;
-            myGrid.VerticalAlignment = VerticalAlignment.Top;
-            myGrid.ShowGridLines = true;
         }
 
         // Fonction permettant de changer
@@ -29,7 +34,14 @@ namespace Morpion
         // n'est pas déjà jouée
         public static bool AJouer(int j, int k, int joueur)
         {
-            // A compléter 
+            // A compléter
+            //initialiser une var bool en "false"
+            //boucler en "while false" et réaliser une variable "JOUEUR"
+            if (j >= 0 && j < 3 && k >= 0 && k < 3 && grille[j, k] == 0)
+            {
+                grille[j, k] = joueur;
+                return true;
+            }
             return false;
         }
 
@@ -37,6 +49,7 @@ namespace Morpion
         // si un joueur à gagner
         public static bool Gagner(int l, int c, int joueur)
         {
+
             // A compléter 
             return false;
         }
@@ -44,33 +57,36 @@ namespace Morpion
         // Programme principal
         static void Main(string[] args)
         {
+
             //--- Déclarations et initialisations --
             int LigneDébut = Console.CursorTop;     // par rapport au sommet de la fenêtre
             int ColonneDébut = Console.CursorLeft; // par rapport au sommet de la fenêtre
 
             int essais = 0;    // compteur d'essais
-	        int joueur = 1 ;   // 1 pour la premier joueur, 2 pour le second
-	        int l, c = 0;      // numéro de ligne et de colonne
+            int joueur = 1;   // 1 pour la premier joueur, 2 pour le second
+            int l, c = 0;      // numéro de ligne et de colonne
             int j, k = 0;      // Parcourir le tableau en 2 dimensions
             bool gagner = false; // Permet de vérifier si un joueur à gagné 
             bool bonnePosition = false; // Permet de vérifier si la position souhaité est disponible
 
-	        //--- initialisation de la grille ---
+            //--- initialisation de la grille ---
             // On met chaque valeur du tableau à 10
-	        for (j=0; j < grille.GetLength(0); j++)
-		        for (k=0; k < grille.GetLength(1); k++)
-			        grille[j,k] = 10;
-            while(!gagner && essais != 9)
+            for (j = 0; j < grille.GetLength(0); j++)
+                for (k = 0; k < grille.GetLength(1); k++)
+                    grille[j, k] = 10;
+            while (!gagner && essais != 9)
             {
 
                 // A compléter 
+                AfficherMorpion(j, k);
                 try
                 {
+                    Console.WriteLine("C'est au tout du joueur 1  :    ");
                     Console.WriteLine("Ligne   =    ");
                     Console.WriteLine("Colonne =    ");
                     // Peut changer en fonction de comment vous avez fait votre tableau.
                     Console.SetCursorPosition(LigneDébut + 10, ColonneDébut + 9); // Permet de manipuler le curseur dans la fenêtre 
-                    l = int.Parse(Console.ReadLine()) - 1; 
+                    l = int.Parse(Console.ReadLine()) - 1;
                     // Peut changer en fonction de comment vous avez fait votre tableau.
                     Console.SetCursorPosition(LigneDébut + 10, ColonneDébut + 10); // Permet de manipuler le curseur dans la fenêtre 
                     c = int.Parse(Console.ReadLine()) - 1;
@@ -89,9 +105,9 @@ namespace Morpion
             }; // Fin TQ
 
             // Fin de la partie
-            // A compléter 
-
+            // A compléter
+            Console.WriteLine("Fin de la partie. Appuyez sur une touche pour quitter.");
             Console.ReadKey();
+        }
     }
-  }
 }
