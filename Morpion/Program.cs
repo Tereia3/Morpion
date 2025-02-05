@@ -6,7 +6,7 @@ namespace Morpion
 {
     class Program
     {
-        public static int[,] grille = new int[3, 3]; // matrice pour stocker les coups jouÃ©s
+        public static int[,] grille = new int[3, 3]; // matrice pour stocker les coups joués
 
         // Fonction pour l'affichage du Morpion
         public static void AfficherMorpion()
@@ -16,7 +16,7 @@ namespace Morpion
             {
                 Console.WriteLine(" -------------");
                 Console.Write("|");
-                for (int j = 0; j < 3; j++) //réutilisation de la boucle FOR en local ET affichage invisiblement
+                for (int j = 0; j < 3; j++) //réutilisation de la boucle FOR en local ET affichage mais invisible pour une délimitation des symboles
                 {
                     if (grille[i, j] == 1)
                         Console.Write(" O |"); //afficher le O
@@ -35,7 +35,7 @@ namespace Morpion
         {
             if (j >= 0 && j < 3 && k >= 0 && k < 3 && grille[j, k] == 0) //condition: ne pas dépasser entre 0 (j= colonne & k=ligne)
             {
-                grille[j, k] = joueur; //déplacemt 60-61 pour faire un boolén 
+                grille[j, k] = joueur;
                 return true;
             }
             return false;
@@ -43,7 +43,7 @@ namespace Morpion
 
 
         // Programme principal
-        static void Main(string[] args) //expliquer pourquoi c'est enlever: 
+        static void Main(string[] args)
         {
             //retrait de "int LigneDébut = Console.CursorTop;
             //retrait de "int ColonneDébut = Console.CursorTop;
@@ -75,11 +75,11 @@ namespace Morpion
                         if (AJouer(l, c, joueur))
                             break;
                         else
-                            Console.WriteLine("Position invalide ou dÃ©jÃ  occupÃ©e, veuillez rÃ©essayer.");
+                            Console.WriteLine("Position invalide ou déja  occupée, veuillez réessayer.");
                     }
                     catch
                     {
-                        Console.WriteLine("EntrÃ©e invalide, veuillez entrer un nombre entre 1 et 3.");
+                        Console.WriteLine("Entrer invalide, veuillez entrer un nombre entre 1 et 3.");
                     }
                 }
 
